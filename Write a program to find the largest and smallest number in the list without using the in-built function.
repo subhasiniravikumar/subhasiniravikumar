@@ -1,0 +1,21 @@
+def find_largest_smallest(arr):
+    if not arr:
+        return None, None
+
+    # Initialize variables to store the largest and smallest numbers
+    largest = smallest = arr[0]
+
+    # Iterate through the list to find the largest and smallest numbers
+    for num in arr:
+        if num > largest:
+            largest = num
+        elif num < smallest:
+            smallest = num
+
+    return largest, smallest
+
+# Example usage:
+numbers = [5, 2, 9, 1, 7, 3]
+largest, smallest = find_largest_smallest(numbers)
+print("Largest number:", largest)
+print("Smallest number:", smallest)
