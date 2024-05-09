@@ -1,0 +1,26 @@
+def second_largest_smallest(arr):
+    if len(arr) < 2:
+        print("List must have at least two elements")
+        return
+
+    sec_largest = sec_smallest = float('inf')
+    largest = smallest = float('-inf')
+
+    for num in arr:
+        if num > largest:
+            sec_largest = largest
+            largest = num
+        elif num > sec_largest and num != largest:
+            sec_largest = num
+
+        if num < smallest:
+            sec_smallest = smallest
+            smallest = num
+        elif num < sec_smallest and num != smallest:
+            sec_smallest = num
+
+    print("Second largest number is:", sec_largest)
+    print("Second smallest number is:", sec_smallest)
+
+arr = [12, 45, 2, 41, 31, 10, 8, 6, 4]
+second_largest_smallest(arr)
