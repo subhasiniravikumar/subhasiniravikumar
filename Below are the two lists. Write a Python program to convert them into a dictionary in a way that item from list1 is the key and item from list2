@@ -1,0 +1,9 @@
+keys = ['Ten', 'Twenty', 'Thirty']
+values = [10, 20, 30]
+
+result_dict = {}
+
+for key, value in zip(keys, values):
+    result_dict.update({key: value})
+
+print(result_dict)
