@@ -1,0 +1,28 @@
+def inr_to_usd(amount):
+    conversion_rate = 0.014
+    return amount * conversion_rate
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+def calculate_bmi(weight_kg, height_m):
+    return weight_kg / (height_m ** 2)
+def calculate_simple_interest(principal, rate, time):
+    return (principal * rate * time) / 100
+def main():
+    amount_inr = 1000
+    amount_usd = inr_to_usd(amount_inr)
+    print(f"{amount_inr} INR is equal to {amount_usd} USD.")
+    celsius_temp = 25
+    fahrenheit_temp = celsius_to_fahrenheit(celsius_temp)
+    print(f"{celsius_temp} Celsius is equal to {fahrenheit_temp} Fahrenheit.")
+    weight = 70 # in kg
+    height = 1.75 # in meters
+    bmi = calculate_bmi(weight, height)
+    print(f"For a person with weight {weight} kg and height {height} m, the BMI is {bmi}.")
+    principal_amount = 1000
+    rate_of_interest = 5 # in percentage
+    time_period = 2 # in years
+    interest = calculate_simple_interest(principal_amount, rate_of_interest, time_period)
+    print(f"The simple interest on Rs.{principal_amount} at {rate_of_interest}% for {time_period} years is Rs.{interest}.")
+
+if __name__ == "__main__":
+    main()
