@@ -1,0 +1,10 @@
+import random
+
+def generate_zeroes_and_ones(length):
+    return [random.choice([0, 1]) for _ in range(length)]
+
+input_list = [0, 1, 0, 1, 1, 0, 1, 0, 1, 0]
+print("Input list:", input_list)
+
+output_list = generate_zeroes_and_ones(len(input_list))
+print("Generated list of 0s and 1s:",
