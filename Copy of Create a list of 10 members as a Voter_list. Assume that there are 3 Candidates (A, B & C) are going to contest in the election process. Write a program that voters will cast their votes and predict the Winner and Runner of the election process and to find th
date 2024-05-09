@@ -1,0 +1,20 @@
+[ ]
+import random
+voter_list = ['Voter1', 'Voter2', 'Voter3', 'Voter4', 'Voter5',
+              'Voter6', 'Voter7', 'Voter8', 'Voter9', 'Voter10']
+
+candidates = ['A', 'B', 'C']
+votes = {candidate: 0 for candidate in candidates}
+for voter in voter_list:
+    vote = random.choice(candidates)
+    votes[vote] += 1
+sorted_votes = sorted(votes.items(), key=lambda x: x[1], reverse=True)
+winner = sorted_votes[0][0]
+runner_up = sorted_votes[1][0]
+winner_voters = [voter for voter in voter_list if votes[winner] > 0]
+runner_up_voters = [voter for voter in voter_list if votes[runner_up] > 0]
+print("Election Results:")
+print("Winner:", winner)
+print("Runner-up:", runner_up)
+print("Members who voted for the winner:", winner_voters)
+print("Members who voted for the runner-up:", 
