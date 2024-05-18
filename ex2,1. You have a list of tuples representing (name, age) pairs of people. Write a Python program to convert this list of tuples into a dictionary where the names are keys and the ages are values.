@@ -1,0 +1,5 @@
+people_list = [("Alice", 25), ("Bob", 30), ("Charlie", 35)]
+
+people_dict = dict(people_list)
+
+print("Dictionary:", people_dict)
