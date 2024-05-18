@@ -1,0 +1,11 @@
+def calculate_simple_interest(principal, rate, time):
+    simple_interest = (principal * rate * time) / 100
+    return simple_interest
+
+principal_amount = float(input("Enter the principal amount: "))
+rate_of_interest = float(input("Enter the rate of interest (in percentage): "))
+time_period = float(input("Enter the time period (in years): "))
+
+interest = calculate_simple_interest(principal_amount, rate_of_interest, time_period)
+
+print("Simple interest:", interest)
