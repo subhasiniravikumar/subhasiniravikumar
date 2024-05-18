@@ -1,0 +1,5 @@
+student_names = ["Alice", "Bob", "Charlie", "Alice", "Bob", "David", "Alice"]
+
+unique_student_names = list(set(student_names))
+
+print("Updated list without duplicate names:", unique_student_names)
