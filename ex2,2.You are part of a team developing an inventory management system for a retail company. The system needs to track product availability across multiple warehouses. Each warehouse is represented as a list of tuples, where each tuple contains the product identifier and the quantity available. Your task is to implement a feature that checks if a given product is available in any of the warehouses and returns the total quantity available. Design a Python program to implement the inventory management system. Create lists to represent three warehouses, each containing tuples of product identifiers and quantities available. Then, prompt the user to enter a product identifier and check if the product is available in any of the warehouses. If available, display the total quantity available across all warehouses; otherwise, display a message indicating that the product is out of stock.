@@ -1,0 +1,21 @@
+def check_product_availability(product_id, warehouses):
+    total_quantity_available = 0
+    for warehouse in warehouses:
+        for item in warehouse:
+            if item[0] == product_id:
+                total_quantity_available += item[1]
+                break  # Stop searching in other warehouses if found in current warehouse
+    return total_quantity_available
+
+warehouse1 = [("P1", 50), ("P2", 100), ("P3", 75)]
+warehouse2 = [("P2", 150), ("P4", 200)]
+warehouse3 = [("P1", 25), ("P5", 50)]
+
+product_id = input("Enter the product identifier: ")
+
+total_quantity_available = check_product_availability(product_id, [warehouse1, warehouse2, warehouse3])
+
+if total_quantity_available > 0:
+    print(f"The product with identifier '{product_id}' is available in total quantity of {total_quantity_available}.")
+else:
+    print(f"The product with identifier '{product_id}' is out of stock.")
