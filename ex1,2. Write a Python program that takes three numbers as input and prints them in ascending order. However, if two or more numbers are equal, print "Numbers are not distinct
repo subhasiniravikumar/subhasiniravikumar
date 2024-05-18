@@ -1,0 +1,13 @@
+def print_sorted_numbers(x, y, z):
+    numbers = [x, y, z]
+    numbers.sort()
+
+    if numbers[0] == numbers[1] or numbers[1] == numbers[2]:
+        print("Numbers are not distinct")
+    else:
+        print("Sorted numbers:", numbers[0], numbers[1], numbers[2])
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+num3 = float(input("Enter the third number: "))
+
+print_sorted_numbers(num1, num2, num3)
