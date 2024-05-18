@@ -1,0 +1,27 @@
+def calculate_growth_rate(start_value, end_value, start_date, end_date):
+    return ((end_value - start_value) / start_value) / ((end_date - start_date).days / 365)
+
+instrument1 = [("2023-01-01", 100), ("2023-06-01", 120), ("2023-12-31", 150)]
+instrument2 = [("2023-01-01", 200), ("2023-06-01", 220), ("2023-12-31", 250)]
+instrument3 = [("2023-01-01", 150), ("2023-06-01", 180), ("2023-12-31", 200)]
+
+start_date = input("Enter the start date (YYYY-MM-DD): ")
+end_date = input("Enter the end date (YYYY-MM-DD): ")
+
+from datetime import datetime
+start_date = datetime.strptime(start_date, "%Y-%m-%d")
+end_date = datetime.strptime(end_date, "%Y-%m-%d")
+
+growth_rates = []
+for instrument_data in [instrument1, instrument2, instrument3]:
+    start_value = next(value for date, value in instrument_data if datetime.strptime(date, "%Y-%m-%d") >= start_date)
+    end_value = next(value for date, value in instrument_data[::-1] if datetime.strptime(date, "%Y-%m-%d") <= end_date)
+    growth_rate = calculate_growth_rate(start_value, end_value, start_date, end_date)
+    growth_rates.append(growth_rate)
+
+max_growth_rate = max(growth_rates)
+instrument_names = ["Instrument 1", "Instrument 2", "Instrument 3"]
+best_instrument = instrument_names[growth_rates.index(max_growth_rate)]
+growth rate
+
+print(f"The instrument with the highest growth rate over the specified period is {best_instrument} with a growth rate of {max_growth_rate:.2%}")
