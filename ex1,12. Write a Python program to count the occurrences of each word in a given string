@@ -1,0 +1,17 @@
+def count_word_occurrences(string):
+    # Split the string into words
+    words = string.split()
+
+    word_count = {}
+
+    for word in words:
+        word_count[word] = word_count.get(word, 0) + 1
+
+    return word_count
+
+input_string = input("Enter a string: ")
+
+word_occurrences = count_word_occurrences(input_string)
+print("Occurrences of each word:")
+for word, count in word_occurrences.items():
+    print(f"{word}: {count}")
