@@ -1,0 +1,9 @@
+def celsius_to_fahrenheit(celsius):
+    fahrenheit = (celsius * 9/5) + 32
+    return fahrenheit
+
+celsius_temperatures = [0, 10, 20, 30, 40]
+
+fahrenheit_temperatures = [celsius_to_fahrenheit(temp) for temp in celsius_temperatures]
+
+print("Temperatures in Fahrenheit:", fahrenheit_temperatures)
