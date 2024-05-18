@@ -1,0 +1,15 @@
+# List of tuples containing student's name and their scores in three subjects (Math, Physics, Chemistry)
+student_scores = [
+    ("Alice", 85, 90, 92),
+    ("Bob", 75, 80, 85),
+    ("Charlie", 90, 85, 88),
+    ("David", 80, 85, 90)
+]
+
+def calculate_total_score(scores):
+    return sum(scores[1:])
+
+sorted_student_scores = sorted(student_scores, key=calculate_total_score, reverse=True)
+
+for student in sorted_student_scores:
+    print(student)
