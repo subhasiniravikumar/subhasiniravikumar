@@ -1,0 +1,14 @@
+def calculate_average_age(people):
+    total_age = sum(age for _, age in people)
+    
+    num_people = len(people)
+    
+    average_age = total_age / num_people
+    
+    return average_age
+
+people = [("Alice", 25), ("Bob", 30), ("Charlie", 35)]
+
+average_age = calculate_average_age(people)
+
+print("Average age of all the people:", average_age)
