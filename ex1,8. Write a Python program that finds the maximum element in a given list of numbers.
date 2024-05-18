@@ -1,0 +1,5 @@
+numbers = [15, 6, 22, 18, 30, 9, 12]
+
+max_number = max(numbers)
+
+print("The maximum element in the list is:", max_number)
