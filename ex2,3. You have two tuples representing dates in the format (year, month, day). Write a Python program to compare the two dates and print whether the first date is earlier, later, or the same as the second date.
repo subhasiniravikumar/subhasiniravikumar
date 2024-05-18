@@ -1,0 +1,23 @@
+def compare_dates(date1, date2):
+    if date1[0] < date2[0]:
+        return "Earlier"
+    elif date1[0] > date2[0]:
+        return "Later"
+    if date1[1] < date2[1]:
+        return "Earlier"
+    elif date1[1] > date2[1]:
+        return "Later"
+    
+    if date1[2] < date2[2]:
+        return "Earlier"
+    elif date1[2] > date2[2]:
+        return "Later"
+
+    return "Same"
+
+date1 = (2022, 5, 15)
+date2 = (2023, 2, 20)
+
+result = compare_dates(date1, date2)
+
+print("The first date is", result, "than the second date.")
