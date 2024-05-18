@@ -1,0 +1,16 @@
+def count_vowels(word):
+    vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+    
+    count = 0
+    
+    for char in word:
+        if char in vowels:
+            count += 1
+    
+    return count
+
+words = ["Python", "programming", "is", "awesome"]
+
+for word in words:
+    vowel_count = count_vowels(word)
+    print(f"{word}: {vowel_count}")
