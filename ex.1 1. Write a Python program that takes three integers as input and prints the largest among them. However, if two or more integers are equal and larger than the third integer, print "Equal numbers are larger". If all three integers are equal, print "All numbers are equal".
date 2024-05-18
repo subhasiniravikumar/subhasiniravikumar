@@ -1,0 +1,16 @@
+def find_largest(x, y, z):
+    if x == y == z:
+        print("All numbers are equal")
+    elif x == y and x > z:
+        print("Equal numbers are larger")
+    elif x == z and x > y:
+        print("Equal numbers are larger")
+    elif y == z and y > x:
+        print("Equal numbers are larger")
+    else:
+        print("The largest number is:", max(x, y, z))
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
+num3 = int(input("Enter the third number: "))
+
+find_largest(num1, num2, num3)
