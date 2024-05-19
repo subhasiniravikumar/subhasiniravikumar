@@ -1,0 +1,13 @@
+def second_largest_value(dictionary):
+    values = list(dictionary.values())
+    
+    sorted_values = sorted(values, reverse=True)
+   
+    second_largest = sorted_values[1]
+    
+    return second_largest
+
+my_dict = {'a': 10, 'b': 20, 'c': 30, 'd': 15}
+
+result = second_largest_value(my_dict)
+print("The second largest value in the dictionary is:", result)
