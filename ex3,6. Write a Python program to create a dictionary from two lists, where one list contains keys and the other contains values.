@@ -1,0 +1,14 @@
+def create_dictionary(keys, values):
+    if len(keys) != len(values):
+        raise ValueError("The lengths of the keys and values lists must be the same.")
+
+    result_dict = dict(zip(keys, values))
+
+    return result_dict
+
+keys_list = ['a', 'b', 'c']
+values_list = [1, 2, 3]
+
+result_dict = create_dictionary(keys_list, values_list)
+
+print("Resulting Dictionary:", result_dict)
