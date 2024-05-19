@@ -1,0 +1,23 @@
+def convert_to_list_of_dicts(dictionary):
+    list_of_dicts = []
+
+    keys = dictionary.keys()
+
+    list_length = len(dictionary[keys[0]])
+
+    for i in range(list_length):s
+        new_dict = {key: dictionary[key][i] for key in keys}
+        list_of_dicts.append(new_dict)
+
+    return list_of_dicts
+
+dict_of_lists = {
+    'name': ['Alice', 'Bob', 'Charlie'],
+    'age': [25, 30, 35],
+    'city': ['New York', 'London', 'Paris']
+}
+
+list_of_dicts = convert_to_list_of_dicts(dict_of_lists)
+
+for item in list_of_dicts:
+    print(item)
