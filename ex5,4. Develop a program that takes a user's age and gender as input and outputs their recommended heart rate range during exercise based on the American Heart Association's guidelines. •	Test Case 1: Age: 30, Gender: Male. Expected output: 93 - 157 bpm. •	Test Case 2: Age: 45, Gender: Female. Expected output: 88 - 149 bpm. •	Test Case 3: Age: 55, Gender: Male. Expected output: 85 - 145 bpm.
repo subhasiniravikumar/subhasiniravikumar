@@ -1,0 +1,18 @@
+def calculate_heart_rate_range(age, gender):
+    if gender.lower() == "male":
+        max_hr = 220 - age
+    elif gender.lower() == "female":
+        max_hr = 226 - age
+    
+    lower_range = max_hr * 0.5
+    upper_range = max_hr * 0.85
+    
+    return int(lower_range), int(upper_range)
+
+test_cases = [(30, "Male"), (45, "Female"), (55, "Male")]
+
+for age, gender in test_cases:
+    lower, upper = calculate_heart_rate_range(age, gender)
+    print(f"Age: {age}, Gender: {gender}.")
+    print("Expected output: {} - {} bpm.".format(lower, upper))
+    print()
