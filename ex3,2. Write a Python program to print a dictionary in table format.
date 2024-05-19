@@ -1,0 +1,9 @@
+from tabulate import tabulate
+
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie'],
+    'Age': [25, 30, 35],
+    'City': ['New York', 'London', 'Paris']
+}
+
+print(tabulate(data, headers='keys', tablefmt='grid'))
