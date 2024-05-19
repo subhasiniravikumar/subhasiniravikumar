@@ -1,0 +1,16 @@
+def translate_sentence(sentence, translations):
+    words = sentence.split()
+
+    translated_words = [translations.get(word, word) for word in words]
+
+    translated_sentence = ' '.join(translated_words)
+
+    return translated_sentence
+
+translations = {'hello': 'bonjour', 'world': 'monde'}
+
+english_sentence = 'hello world'
+
+translated_sentence = translate_sentence(english_sentence, translations)
+
+print("Translated Sentence:", translated_sentence)
