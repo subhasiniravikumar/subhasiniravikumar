@@ -1,0 +1,16 @@
+def calculate_average_grade(grades):
+    average_grades = {}
+
+    for student, grade_list in grades.items():
+        average_grade = sum(grade_list) / len(grade_list)
+
+        average_grades[student] = '{:.2f}'.format(average_grade)
+
+    return average_grades
+
+grades = {'John': [85, 90, 88], 'Alice': [75, 80, 82], 'Bob': [92, 88, 90]}
+
+average_grades = calculate_average_grade(grades)
+
+for student, average_grade in average_grades.items():
+    print(f"{student}: {average_grade}")
