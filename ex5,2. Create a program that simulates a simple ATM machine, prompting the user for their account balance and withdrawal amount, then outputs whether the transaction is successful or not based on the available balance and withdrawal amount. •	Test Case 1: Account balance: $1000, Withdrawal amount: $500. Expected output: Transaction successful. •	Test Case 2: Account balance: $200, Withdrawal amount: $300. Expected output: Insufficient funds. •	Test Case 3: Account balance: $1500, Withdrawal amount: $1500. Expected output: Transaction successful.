@@ -1,0 +1,12 @@
+def atm_transaction(account_balance, withdrawal_amount):
+    if withdrawal_amount <= account_balance:
+        return "Transaction successful."
+    else:
+        return "Insufficient funds."
+
+test_cases = [(1000, 500), (200, 300), (1500, 1500)]
+
+for balance, withdrawal in test_cases:
+    print(f"Account balance: ${balance}, Withdrawal amount: ${withdrawal}.")
+    print("Expected output:", atm_transaction(balance, withdrawal))
+    print()
