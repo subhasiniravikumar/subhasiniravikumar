@@ -1,0 +1,16 @@
+def update_dictionary_value(dictionary, key, new_value):
+    if key in dictionary:
+        dictionary[key] = new_value
+        print("Value updated successfully.")
+    else:
+        print("Key not found in the dictionary.")
+
+my_dict = {'a': 1, 'b': 2, 'c': 3}
+
+key_to_update = 'b'
+
+new_value = 10
+
+update_dictionary_value(my_dict, key_to_update, new_value)
+
+print("Updated Dictionary:", my_dict)
