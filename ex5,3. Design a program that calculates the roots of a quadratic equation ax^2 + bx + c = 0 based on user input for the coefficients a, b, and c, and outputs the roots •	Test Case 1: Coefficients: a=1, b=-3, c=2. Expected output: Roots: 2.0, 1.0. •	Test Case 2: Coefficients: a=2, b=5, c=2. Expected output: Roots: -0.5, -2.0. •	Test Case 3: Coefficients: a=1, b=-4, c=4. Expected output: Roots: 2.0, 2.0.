@@ -1,0 +1,24 @@
+def calculate_roots(a, b, c):
+    discriminant = b**2 - 4*a*c
+
+    if discriminant > 0:
+        root1 = (-b + discriminant**0.5) / (2*a)
+        root2 = (-b - discriminant**0.5) / (2*a)
+        return root1, root2
+    elif discriminant == 0:
+        root = -b / (2*a)
+        return root, root
+    else:
+        real_part = -b / (2*a)
+        imaginary_part = abs(discriminant)**0.5 / (2*a)
+        root1 = complex(real_part, imaginary_part)
+        root2 = complex(real_part, -imaginary_part)
+        return root1, root2
+
+test_cases = [(1, -3, 2), (2, 5, 2), (1, -4, 4)]
+
+for a, b, c in test_cases:
+    roots = calculate_roots(a, b, c)
+    print(f"Coefficients: a={a}, b={b}, c={c}.")
+    print("Expected output: Roots:", ', '.join(map(str, roots)))
+    print()
