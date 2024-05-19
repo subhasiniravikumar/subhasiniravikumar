@@ -1,0 +1,14 @@
+def count_votes(votes):
+    result_dict = {}
+
+    for candidate, vote_count in votes.items():
+        result_dict[candidate] = vote_count
+
+    return result_dict
+
+votes = {'Candidate1': 150, 'Candidate2': 200, 'Candidate3': 180}
+
+vote_counts = count_votes(votes)
+
+for candidate, vote_count in vote_counts.items():
+    print(f"{candidate}: {vote_count}")
