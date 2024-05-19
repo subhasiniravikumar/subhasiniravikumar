@@ -1,0 +1,12 @@
+inner_dict1 = {'name': 'Alice', 'age': 25}
+inner_dict2 = {'name': 'Bob', 'age': 30}
+inner_dict3 = {'name': 'Charlie', 'age': 35}
+
+dict_of_dicts = {
+    'person1': inner_dict1,
+    'person2': inner_dict2,
+    'person3': inner_dict3
+}
+
+for key, inner_dict in dict_of_dicts.items():
+    print(f"Key: {key}, Inner Dictionary: {inner_dict}")
