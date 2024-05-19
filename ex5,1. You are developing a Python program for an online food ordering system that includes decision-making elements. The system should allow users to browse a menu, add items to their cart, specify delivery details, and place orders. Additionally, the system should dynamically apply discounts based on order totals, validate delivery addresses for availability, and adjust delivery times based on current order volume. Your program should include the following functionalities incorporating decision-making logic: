@@ -1,0 +1,65 @@
+class FoodItem:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+
+class ShoppingCart:
+    def __init__(self):
+        self.items = []
+
+    def add_item(self, item):
+        self.items.append(item)
+
+    def calculate_total(self):
+        return sum(item.price for item in self.items)
+
+class Delivery:
+    def __init__(self, address):
+        self.address = address
+
+    def validate_address(self):
+
+        return True
+
+    def adjust_delivery_time(self, current_order_volume):
+        return "Estimated delivery time: 30 minutes"
+
+class Order:
+    def __init__(self, cart, delivery):
+        self.cart = cart
+        self.delivery = delivery
+
+    def apply_discount(self):
+        total = self.cart.calculate_total()
+        if total >= 50:
+            return total * 0.1
+        elif total >= 30:
+            return total * 0.05
+        else:
+            return 0
+
+    def place_order(self, current_order_volume):
+        if not self.delivery.validate_address():
+            return "Invalid delivery address."
+        
+        delivery_time = self.delivery.adjust_delivery_time(current_order_volume)
+        total_with_discount = self.cart.calculate_total() - self.apply_discount()
+        
+        return f"Order placed! {delivery_time}. Total amount: ${total_with_discount:.2f}"
+
+menu = [
+    FoodItem("Pizza", 10),
+    FoodItem("Burger", 8),
+    FoodItem("Salad", 6)
+]
+
+cart = ShoppingCart()
+cart.add_item(menu[0])  # Add Pizza to cart
+cart.add_item(menu[1])  # Add Burger to cart
+
+delivery_address = "123 Main St"
+delivery = Delivery(delivery_address)
+
+order = Order(cart, delivery)
+current_order_volume = 20  # Simulated current order volume
+print(order.place_order(current_order_volume))
