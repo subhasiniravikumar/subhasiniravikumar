@@ -1,0 +1,10 @@
+def generate_email(first_name, last_name):
+    first_name = first_name.lower().replace(" ", ".")
+    last_name = last_name.lower().replace(" ", ".")
+    email = f"{first_name}.{last_name}@example.com"
+    return email
+
+first_name = input("Enter your first name: ")
+last_name = input("Enter your last name: ")
+email = generate_email(first_name, last_name)
+print("Generated email address:", email)
