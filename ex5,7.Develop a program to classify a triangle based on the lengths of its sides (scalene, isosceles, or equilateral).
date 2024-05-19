@@ -1,0 +1,20 @@
+def classify_triangle(side1, side2, side3):
+    if side1 == side2 == side3:
+        return "Equilateral"
+    elif side1 == side2 or side1 == side3 or side2 == side3:
+        return "Isosceles"
+    else:
+        return "Scalene"
+
+try:
+    side1 = float(input("Enter the length of the first side: "))
+    side2 = float(input("Enter the length of the second side: "))
+    side3 = float(input("Enter the length of the third side: "))
+
+    if side1 <= 0 or side2 <= 0 or side3 <= 0:
+        print("Invalid side lengths. Please enter positive values for side lengths.")
+    else:
+        triangle_type = classify_triangle(side1, side2, side3)
+        print(f"The triangle is classified as: {triangle_type}")
+except ValueError:
+    print("Invalid input. Please enter numeric values for side lengths.")
