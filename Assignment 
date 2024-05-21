@@ -1,0 +1,49 @@
+def create_result_file(file_path):
+    with open(file_path, 'w') as file:
+        file.write("Name,Register Number,Grade1,Grade2,Grade3,Grade4,Grade5,Total,Percentage\n")
+        for i in range(1, 31):
+            name = f"Student {i}"
+            reg_number = f"6543210{i}"
+            grades = ['O', 'A', 'B', 'C', 'D']
+            subject_grades = ','.join([random.choice(grades) for _ in range(5)])
+            total_marks = sum([10 if grade == 'O' else 9 if grade == 'A' else 8 if grade == 'B' else 7 if grade == 'C' else 6 if grade == 'D' else 0 for grade in subject_grades.split(',')])
+            percentage = (total_marks / 50) * 100
+            file.write(f"{name},{reg_number},{subject_grades},{total_marks},{percentage:.2f}%\n")
+def read_result_file(file_path):
+    with open(file_path, 'r') as file:
+        for line in file:
+            print(line.strip())
+def analyze_results(input_file, output_file):
+    categories = {
+        '90 and above': 0,
+        '80 - 89': 0,
+        '70 - 79': 0,
+        'below 70': 0,
+        'Arrear': 0
+    }
+    with open(input_file, 'r') as infile:
+        for line in infile:
+            if line.startswith('Name'):  
+                continue
+            _, _, _, _, _, _, _, total, percentage = line.strip().split(',')
+            percentage = float(percentage[:-1]) 
+            if percentage >= 90:
+                categories['90 and above'] += 1
+            elif 80 <= percentage < 90:
+                categories['80 - 89'] += 1
+            elif 70 <= percentage < 80:
+                categories['70 - 79'] += 1
+            elif percentage < 70:
+                categories['below 70'] += 1
+            if 'U' in line:
+                categories['Arrear'] += 1
+    with open(output_file, 'w') as outfile:
+        outfile.write("Category,Count\n")
+        for category, count in categories.items():
+            outfile.write(f"{category},{count}\n")
+import random
+create_result_file("result.txt")
+print("Content of result.txt:")
+read_result_file("result.txt")
+analyze_results("result.txt", "analysis.txt")
+print("Analysis written to analysis.txt")
