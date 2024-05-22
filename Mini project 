@@ -1,0 +1,25 @@
+import tkinter as tk
+from tkinter import messagebox
+
+def calculate_weight():
+    try:
+        height = float(height_entry.get())
+        gender = gender_var.get()
+        weight = (height - 100) * 0.9 if gender == "male" else (height - 100) * 0.9 - 2.5
+        result_label.config(text=f"Your ideal weight is: {weight:.2f} kg")
+    except ValueError:
+        messagebox.showerror("Error", "Please enter a valid height.")
+root = tk.Tk()
+root.title("Weight Calculator")
+root.geometry("500x500")
+tk.Label(root, text="Height (cm):").grid(row=0, column=0, padx=5, pady=5)
+height_entry = tk.Entry(root)
+height_entry.grid(row=0, column=1, padx=5, pady=5)
+tk.Label(root, text="Gender:").grid(row=1, column=0, padx=5, pady=5)
+gender_var = tk.StringVar(root, "male")
+tk.Radiobutton(root, text="Male", variable=gender_var, value="male").grid(row=1, column=1, padx=5, pady=5)
+tk.Radiobutton(root, text="Female", variable=gender_var, value="female").grid(row=1, column=2, padx=5, pady=5)
+tk.Button(root, text="Calculate", command=calculate_weight).grid(row=2, columnspan=3, padx=5, pady=5)
+result_label = tk.Label(root, text="")
+result_label.grid(row=3, columnspan=3, padx=5, pady=5)
+root.mainloop()
