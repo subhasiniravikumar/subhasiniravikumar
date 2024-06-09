@@ -1,0 +1,8 @@
+def apply_function_to_list(func, values):
+    """Apply the given function to each value in the list and return the results."""
+    return [func(value) for value in values]
+def square(x):
+    return x ** 2
+values = [1, 2, 3, 4, 5]
+results = apply_function_to_list(square, values)
+print("Results:", results)
