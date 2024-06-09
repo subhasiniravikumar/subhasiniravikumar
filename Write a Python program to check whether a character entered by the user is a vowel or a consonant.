@@ -1,0 +1,16 @@
+def check_vowel_or_consonant(char):
+    vowels = "aeiouAEIOU"
+    if len(char) != 1:
+        return "Please enter a single character."
+    if not char.isalpha():
+        return "Please enter a valid alphabet character."
+    if char in vowels:
+        return f"{char} is a vowel."
+    else:
+        return f"{char} is a consonant."
+def main():
+    char = input("Enter a character: ")
+    result = check_vowel_or_consonant(char)
+    print(result)
+if __name__ == "__main__":
+    main()
