@@ -1,0 +1,10 @@
+def multiplication_table(number):
+    """Create the multiplication table of the given number from 1 to 10."""
+    print(f"Multiplication Table of {number}:")
+    for i in range(1, 11):
+        print(f"{number} x {i} = {number * i}")
+def main():
+    number = int(input("Enter a number: "))
+    multiplication_table(number)
+if __name__ == "__main__":
+    main()
