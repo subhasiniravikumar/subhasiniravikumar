@@ -1,0 +1,77 @@
+1)
+def gcd(a, b)
+    if (a == 0):
+        return b
+    if (b == 0):
+        return a
+    if (a == b):
+        return a
+    if (a > b):
+        return gcd(a-b, b)
+    return gcd(a, b-a)
+a = 98
+b = 56
+if(gcd(a, b)):
+    print('GCD of', a, 'and', b, 'is', gcd(a, b))
+else:
+    print('not found')
+2) 
+def myfunc(n):
+    k = n - 1
+    for i in range(0, n):
+        for j in range(0, k):
+            print(end=" ")
+        k = k - 1
+        for j in range(0, i+1):
+            print("* ", end="")
+        print("\r")
+n = 5
+myfunc(n)
+
+3) 
+num = int(input("Enter a number: ")
+temp = num
+reverse = 0
+while temp > 0:
+    remainder = temp % 10
+    reverse = (reverse * 10) + remainder
+    temp = temp // 10
+if num == reverse:
+  print('Palindrome')
+else:
+  print("Not Palindrome")
+
+4)
+num = int(input("enter a number: "))
+flag = False
+if num > 1:
+    for i in range(2, num):
+        if (num % i) == 0:
+            flag = True
+            break
+if flag:
+    print(num, "is not a prime number")
+else:
+    print(num, "is a prime number")
+
+5) 
+Program to add two matrices using nested loop
+
+X = [[12,7,3],
+    [4 ,5,6],
+    [7 ,8,9]]
+
+Y = [[5,8,1],
+    [6,7,3],
+    [4,5,9]]
+
+result = [[0,0,0],
+         [0,0,0],
+         [0,0,0]]
+
+for i in range(len(X)):
+   for j in range(len(X[0])):
+       result[i][j] = X[i][j] + Y[i][j]
+
+for r in result:
+   print(r)
