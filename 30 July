@@ -1,0 +1,61 @@
+
+1. class Book:
+    def __init__(self, title, author, isbn):
+        self.title = title
+        self.author = author
+        self.isbn = isbn
+    def display(self):
+        print(f"Title: {self.title}, Author: {self.author}, ISBN: {self.isbn}")
+book = Book("1984", "George Orwell", "1234567890")
+book.display()
+
+
+2. def binary_search(arr, x):
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] < x:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1
+arr = [2, 3, 4, 10, 40]
+x = 10
+result = binary_search(arr, x)
+print(f"Element is present at index {result}" if result != -1 else "Element is not present in array")
+
+
+3. List_1=[23,34,56]
+List_2=[45,66,77]
+concatenation_list=List_1+List_2
+print (concatenation_ list)
+
+
+4. if __name == '__main__':
+   s= input()
+   if s==s[::-1]:
+      print("Yes")
+   else:
+      print("No")
+
+
+5. from itertools import combinations_with_replacement
+input_string,r=input().split()
+r=int(r)
+combinations=combinations_with_replacement(sorted(input_string),r)
+for combo in combinations:
+    print(''.join(combo))
+
+
+6. def sum_of_digits(n):
+    return sum(int(digit) for digit in str(n))
+n=23456
+print(sum_of_digits(n))
+
+
+7. def simpleArraysum(arr):
+    return sum(arr)
+arr=[1,2,3,4]
+print("simpleArraysum(arr)")
