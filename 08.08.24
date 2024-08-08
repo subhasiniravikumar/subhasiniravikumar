@@ -1,0 +1,28 @@
+python program 1:
+
+rcb=input()
+if(rcb=="win"):
+    print("Ee sala cum namde")
+else:
+    print("valakam pola cup Ila")
+
+
+
+python program 2:
+
+mark = int(input())
+if(mark>35):
+    print("pass")
+else:
+    print("fail")
+
+
+
+
+python program 3:
+
+a = int(input ())
+if(a%3==0 and a%5==0):
+   print("divisible by 3 and 5")
+else:
+    print("not divisible by 3 and 5")
