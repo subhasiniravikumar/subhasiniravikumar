@@ -1,0 +1,88 @@
+import tkinter as tk
+from tkinter import messagebox
+import random
+ROWS = 6
+COLS = 7
+PLAYER = 1
+AI = 2
+class ConnectFour:
+ def __init__(self, root):
+ self.root = root
+ self.root.title("Connect Four - Player vs AI")
+ self.canvas = tk.Canvas(self.root, width=700, height=600, bg="blue")
+ self.canvas.pack()
+ self.canvas.bind("<Button-1>", self.click)
+ self.board = [[0 for _ in range(COLS)] for _ in range(ROWS)]
+ self.draw_board()
+ self.game_over = False
+ self.current_player = PLAYER
+ def draw_board(self):
+ self.canvas.delete("all")
+ for r in range(ROWS):
+ for c in range(COLS):              x0 = c * 100
+ y0 = r * 100
+ x1 = x0 + 100
+ y1 = y0 + 100
+ self.canvas.create_oval(x0 + 5, y0 + 5, x1 - 5, y1 - 5,
+ fill=self.get_color(self.board[r][c]))
+ def get_color(self, value):
+ return "white" if value == 0 else "red" if value == PLAYER else "yellow"
+ def click(self, event):
+ if self.game_over or self.current_player != PLAYER:
+ return
+ col = event.x // 100
+ if self.make_move(col, PLAYER):
+ self.draw_board()
+ if self.check_win(PLAYER):
+ self.end_game("Player wins!")
+ return
+ self.current_player = AI
+ self.root.after(500, self.ai_move)
+ def make_move(self, col, player):
+ for row in reversed(range(ROWS)):        if self.board[row][col] == 0:
+ self.board[row][col] = player
+ return True
+ return False
+ def ai_move(self):
+ if self.game_over:
+ return
+ valid_cols = [c for c in range(COLS) if self.board[0][c] == 0]
+ if not valid_cols:
+ self.end_game("It's a draw!")
+ return
+ col = random.choice(valid_cols)
+ self.make_move(col, AI)
+ self.draw_board()
+ if self.check_win(AI):
+ self.end_game("AI wins!")
+ return
+ self.current_player = PLAYER
+ def check_win(self, player):
+ # Check horizontal
+ for r in range(ROWS):
+ for c in range(COLS - 3):
+ if all(self.board[r][c + i] == player for i in range(4)):
+ return True                            # Check vertical
+ for c in range(COLS):
+ for r in range(ROWS - 3):
+ if all(self.board[r + i][c] == player for i in range(4)):
+ return True
+ # Check diagonal down-right
+ for r in range(ROWS - 3):
+ for c in range(COLS - 3):
+ if all(self.board[r + i][c + i] == player for i in range(4)):
+ return True
+ # Check diagonal up-right
+ for r in range(3, ROWS):
+ for c in range(COLS - 3):
+ if all(self.board[r - i][c + i] == player for i in range(4)):
+ return True
+ return False
+ def end_game(self, message):
+ self.game_over = True
+ messagebox.showinfo("Game Over", message)
+# Run the game
+if __name__ == "__main__":
+ root = tk.Tk()
+ game = ConnectFour(root)
+ root.mainloop()
