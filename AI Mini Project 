@@ -1,4 +1,4 @@
-import tkinter as tk
+import tkinter as tk
 from tkinter import messagebox
 import random
 ROWS = 6
@@ -62,7 +62,7 @@ class ConnectFour:
  for r in range(ROWS):
  for c in range(COLS - 3):
  if all(self.board[r][c + i] == player for i in range(4)):
- return True                            # Check vertical
+ return True                            vertical
  for c in range(COLS):
  for r in range(ROWS - 3):
  if all(self.board[r + i][c] == player for i in range(4)):
