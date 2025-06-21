@@ -42,3 +42,67 @@ public class PrintNumbers {
         }
     }
 }
+
+6.
+public class ReverseString {
+    public static void main(String[] args) {
+        String str = "Java";
+        String rev = "";
+        for(int i = str.length() - 1; i >= 0; i--) {
+            rev += str.charAt(i);
+        }
+        System.out.println("Reversed: " + rev);
+    }
+}
+
+
+7.
+public class PrimeCheck {
+    public static void main(String[] args) {
+        int num = 7;
+        boolean isPrime = true;
+        for(int i = 2; i <= num / 2; i++) {
+            if(num % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        System.out.println(num + " is " + (isPrime ? "Prime" : "Not Prime"));
+    }
+}
+
+8.
+public class Fibonacci {
+    public static void main(String[] args) {
+        int n = 10, a = 0, b = 1;
+        System.out.print("Fibonacci Series: ");
+        for(int i = 1; i <= n; i++) {
+            System.out.print(a + " ");
+            int sum = a + b;
+            a = b;
+            b = sum;
+        }
+    }
+}
+
+9.
+public class Largest {
+    public static void main(String[] args) {
+        int a = 10, b = 25, c = 15;
+        int max = (a > b) ? (a > c ? a : c) : (b > c ? b : c);
+        System.out.println("Largest: " + max);
+    }
+}
+
+10.
+public class Palindrome {
+    public static void main(String[] args) {
+        int num = 121, rev = 0, temp = num;
+        while(temp != 0) {
+            int digit = temp % 10;
+            rev = rev * 10 + digit;
+            temp /= 10;
+        }
+        System.out.println(num + " is " + (num == rev ? "a Palindrome" : "not a Palindrome"));
+    }
+}
